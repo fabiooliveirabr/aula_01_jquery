@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
+    <link rel="stylesheet" href="estilo.css">  
+</head>
+<body>
+    
+    <script>
+        $(document).ready(function(){
+            
+        });
+    </script>
+
+    <h1>Introdução ao JQuery</h1>
+    <p>jQuery é uma biblioteca JavaScript rápida, leve e rica em recursos, projetada para simplificar tarefas comuns de desenvolvimento web. Com jQuery, você pode manipular o DOM, controlar eventos, criar animações e facilitar a comunicação AJAX em suas páginas web.</p>
+    <br><br>
+    <hr>
+ 
+
+    <h1>Interagindo com botões</h1>
+    <button id="btn1"> Botão 1</button>
+    <button id="btn2"> Botão 2</button>
+    <button id="btn3"> Botão 3</button>
+    <br><br>
+    <hr>
+    
+    <h1>Mostrar ou esconder objetos</h1>
+    <button id="btnEsconder"> Esconder div 1</button>
+    <button id="btnMostrar"> Mostrar div 1</button>
+    <button id="btnAlternar"> Esconder/Mostrar imagem</button>
+    <br><br>
+    <img id="carregando" src="carregando.gif" height="70">
+    <div id="divUm"> DIV 1</div> 
+    <br><br>
+    <hr>
+
+    <h1>Mudar alguma propriedade CSS</h1>
+    <button id="btnAlterarEstilo">Alterar CSS</button>
+    <div id="divDois"> DIV 2</div>
+    <br><br>
+    <hr>
+
+    <h1>Alterar o conteudo html</h1>
+    <button id="btnMudarHtml">Mudar conteúdo</button>
+    <div id="divTres" class="caixas"> DIV 3</div>
+    <br><br>
+    <hr>
+
+    <h1>Capturar o texto de algum elemento</h1>
+    <button id="btnCapturar">Obter texto</button>
+    <div id="divQuatro" class="caixas"> Estou aqui</div>
+    <div id="divCinco" class="caixas"> Eu também</div>
+    <div id="divSeis" class="caixas"> Não falei nada</div>
+    <br><br>
+    <hr>
+
+    <h1>Obter dados de campos de formulário</h1>
+    <div style="display: flex;">
+        <div>
+            <label>Nome: </label>
+            <input type="text" id="caixa_nome"><br><br>
+        
+            <label>Data de nascimento: </label>
+            <input type="date" id="caixa_data"> <br><br>
+        
+            <label>Cargo: </label>
+            <select id="caixa_cargo">
+                <option value="">Selecione</option>
+                <option value="Gestor de TI">Gestor de TI</option>
+                <option value="Des. Frontend">Des. Frontend</option>
+                <option value="Des. Backend">Des. Backend</option>
+                <option value="Des. FullStack">Des. FullStack</option>
+            </select>
+        </div>
+        <div style="text-align: center; width: 700px;">
+            <button id="btnObterDados">Obter dados</button>
+            <br><br>
+            <div id="conteudo1">Mostre os dados aqui...</div>
+        </div>
+    </div>
+
+    <br><br>
+    <hr>
+
+    <h1>Colocar dados em campos de formulário</h1>
+    <div style="display: flex;">
+        <div>
+            <label>Nome: </label>
+            <input type="text" id="caixa_nome2"><br><br>
+        
+            <label>Data de nascimento: </label>
+            <input type="date" id="caixa_data2"> <br><br>
+        
+            <label>Cargo: </label>
+            <select id="caixa_cargo2">
+                <option value="">Selecione</option>
+                <option value="Gestor de TI">Gestor de TI</option>
+                <option value="Des. Frontend">Des. Frontend</option>
+                <option value="Des. Backend">Des. Backend</option>
+                <option value="Des. FullStack">Des. FullStack</option>
+            </select>
+        </div>
+        <div style="text-align: center; width: 700px;">
+            <button id="btnObterDados2">Obter dados</button>
+            <br><br>
+            <div id="conteudo2">Mostre os dados aqui...</div>
+        </div>
+    </div>
+    <br><br>
+    <hr>
+
+    <h1>Usando $(this) e find()</h1>
+    <div style="display: flex; justify-content: space-around;">
+        <div class="cartoes">
+            <span class="nome_produto">Feijão</span> <br>
+            R$ <span class="preco_produto">8,99</span><br><br>
+            <button>Editar</button>
+        </div>
+        <div class="cartoes">
+            <span class="nome_produto">Arroz</span> <br>
+            R$ <span class="preco_produto">6,89</span><br><br>
+            <button>Editar</button>
+        </div>
+        <div class="cartoes">
+            <span class="nome_produto">Coxão mole(kg)</span> <br>
+            R$ <span class="preco_produto">41,99</span><br><br>
+            <button>Editar</button>
+        </div>
+        <div class="cartoes">
+            <span class="nome_produto">Flocao de Milho</span> <br>
+            R$ <span class="preco_produto">2,39</span><br><br>
+            <button>Editar</button>
+        </div>
+        <div class="cartoes">
+            <span class="nome_produto">Bandeja c/ 30 ovos</span> <br>
+            R$ <span class="preco_produto">16,99</span><br><br>
+            <button>Editar</button>
+        </div>
+    </div>
+    <br><br>
+    <hr>
+
+    <h1>Carregar conteúdo de uma página dentro de uma div</h1>
+    <div id="conteudo3" style="border: 1px solid red;height: 200px;">
+        Carregue aqui...
+    </div>
+    <br><br>
+    <hr>
+
+    <h1>Cadastrando dados com AJAX</h1>
+    <div style="display: flex;">
+        <div>
+            <label>Nome: </label>
+            <input type="text" id="caixa_nome3"><br><br>
+        
+            <label>Data de nascimento: </label>
+            <input type="date" id="caixa_data3"> <br><br>
+        
+            <label>Cargo: </label>
+            <select id="caixa_cargo3">
+                <option value="">Selecione</option>
+                <option value="Gestor de TI">Gestor de TI</option>
+                <option value="Des. Frontend">Des. Frontend</option>
+                <option value="Des. Backend">Des. Backend</option>
+                <option value="Des. FullStack">Des. FullStack</option>
+            </select><br><br>
+            <button id="btnCadastrar">Cadastrar</button>
+        </div>
+        <div style=" width: 700px;">
+            <div id="conteudo4" style="border: 1px solid gray; margin-left: 100px; height: 100px;">
+                Mostre os dados aqui...
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <hr>
+
+    <h1>Editar/Deletar com AJAX</h1>
+    <br><br>
+    <hr>
+
+
+
+
+    <script>
+        $("#btnCapturar").click(function(){
+            alert($("#divQuatro").text());
+        });
+    </script>
+    
+
+
+</body>
+</html>

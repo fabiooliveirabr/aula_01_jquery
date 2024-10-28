@@ -1,0 +1,53 @@
+body{
+    min-height: 2000px;
+    margin: 50px;
+}
+
+#divUm{
+    height: 100px;
+    width: 100px;
+    background-color: cornflowerblue;
+    margin: 30px;
+}
+#divDois{
+    height: 100px;
+    width: 100px;
+    background-color: greenyellow;
+    margin: 30px;
+}
+
+.caixas{
+    height: 100px;
+    width: 100px;
+    margin: 30px;
+}
+
+#divTres{
+    background-color: purple;
+}
+#divQuatro{
+    background-color: darkturquoise;
+    width: 500px !important;
+}
+#divCinco{
+    background-color: burlywood;
+    width: 500px !important;
+}
+#divSeis{
+    background-color: chocolate;
+    width: 500px !important;
+}
+
+.cartoes{
+    width: 80px;
+    height: 80px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px gray;
+    border-radius: 10px;
+    transition: all 1s;
+}
+
+.cartoes:hover{
+    background-color: cornflowerblue;
+    transform: scale(1.2);
+}
