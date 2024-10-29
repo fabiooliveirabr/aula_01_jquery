@@ -124,11 +124,13 @@
             R$ <span class="preco_produto">41,99</span><br><br>
             <button>Editar</button>
         </div>
+
         <div class="cartoes">
             <span class="nome_produto">Flocao de Milho</span> <br>
             R$ <span class="preco_produto">2,39</span><br><br>
             <button>Editar</button>
         </div>
+
         <div class="cartoes">
             <span class="nome_produto">Bandeja c/ 30 ovos</span> <br>
             R$ <span class="preco_produto">16,99</span><br><br>
@@ -176,6 +178,117 @@
     <h1>Editar/Deletar com AJAX</h1>
     <br><br>
     <hr>
+
+    <script>
+        // Quando a página estiver pronta
+        $(document).ready(function(){
+            // alert("Tudo certo");
+            //Reconhecer o click simples
+            $("#btn1").click(function(){
+                alert("Você clicou no botão1");
+            });
+            //Reconhecer o click duplo
+            $("#btn2").dblclick(function(){
+                alert("Botão2 clicado 2x!");
+            });
+
+            //Reconhecer quando passar o mouse
+            $("#btn3").hover(function(){
+                alert("Você passou o mouse!");
+            });
+
+            $("#btnEsconder").click(function(){
+                //Esconder a divUm
+                $("#divUm").hide();
+            });
+
+            $("#btnMostrar").click(function(){
+                //Mostrar a divUm
+                $("#divUm").show();
+            });
+
+            $("#btnAlternar").click(function(){
+                // Alternar em exibir/esconder
+                $("#carregando").toggle();
+            });
+
+            $("#btnAlterarEstilo").click(function(){
+                //Alterar estilo css
+                $("#divDois").css({"width": "500px",
+                                   "height": "300px"});
+            });
+
+            $("#btnMudarHtml").click(function(){
+                // $('#divTres').html("<h1>Texto</h1>");
+                // $('#divTres').html("<img src='carregando.gif' height='20'>");
+                var conteudo = "";
+                conteudo += "<h1> Título </h1>";
+                conteudo += "<img src='carregando.gif' height='40'>";
+                conteudo += "<br>";
+                conteudo += "<h2>Título 2</h2>";
+
+                $('#divTres').html(conteudo);
+                $('#divTres').css({"height":"400px"});
+                
+            }); 
+            
+            $("#btnCapturar").click(function(){
+                var texto1, texto2, texto3;
+                //Capturar o texto dentro de elementos
+                texto1 = $("#divQuatro").text();
+                texto2 = $("#divCinco").text();
+                texto3 = $("#divSeis").text();                
+                alert(texto1 + texto2 + texto3);
+            });
+
+            $("#btnObterDados").click(function(){
+                var nome = $("#caixa_nome").val();
+                var data = $("#caixa_data").val();
+                var cargo = $("#caixa_cargo").val();
+
+                //Acrecenta o conteúdo e APAGA o anterior
+                $("#conteudo1").html("<h1>"+nome+"</h1>");
+
+                //append acrecenta SEM APAGAR o anterior
+                $("#conteudo1").append("<h1>"+data+"</h1>");
+                $("#conteudo1").append("<h1>"+cargo+"</h1>");
+
+                //Limpar os campos do formulários
+                $("#caixa_data").val("");
+                $("#caixa_nome").val("");
+                $("#caixa_cargo").val("");
+            });
+
+            //Colocar dados em campos de formulário
+            $("#btnObterDados2").click(function(){
+                $("#caixa_nome2").val("Gabriel das Meninas");
+                $("#caixa_data2").val("2000-03-15");
+                $("#caixa_cargo2").val("Gestor de TI");
+
+                $("#conteudo2").html("<h1>Inserido!</h1>")
+            });
+            
+
+            //Usando $(this) e find()
+            $(".cartoes").click(function(){
+                /*Capturar o texto da classe nome_produto
+                do cartão que foi clicado(this = este)*/
+                var nome = $(this).find(".nome_produto").text();
+                var preco = $(this).find(".preco_produto").text();
+
+                alert("O nome do produto é: "+ nome);
+                alert("O preço do produto é: "+ preco);
+            });
+
+            //Carregar dados de uma página dentro de uma div
+            $("#conteudo3").load("dados.php");
+
+
+
+
+
+        });//Fim do document.ready
+    </script>
 
 
 </body>
