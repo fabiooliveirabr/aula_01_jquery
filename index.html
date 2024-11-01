@@ -197,6 +197,33 @@
     </div>
 
     <script>
+        $("#btnAtualizar").click(function(){
+            //Capturar os dados e guarda em variáveis
+            var id_escolhido = $("#id_pessoa").val();
+            var nome_escolhido = $("#nome_pessoa").val();
+            var data_escohida = $("#data_pessoa").val();
+            var cargo_escolhido =$("#cargo_pessoa").val();
+            $("#formulario").hide();
+            $("#imgCarregando").show();
+            $.ajax({
+                url: "atualizar.php",
+                method: "POST",
+                data: {id: id_escolhido,
+                       nome: nome_escolhido,
+                       data: data_escohida,
+                       cargo:  cargo_escolhido},
+                success: function(resposta){
+                    alert(resposta);
+                    $("#escurecer").hide();
+                    $("#conteudo5").load("consultar2.php");
+                },
+                error:  function(){
+                    alert("Não foi possível atualizar");
+                },
+            });            
+        });
+
+
         $(document).on("click", ".cartao_pessoa", function(){
             $("#escurecer").show();
             $("#formulario").show();
