@@ -199,10 +199,11 @@
     <script>
         $(document).on("click", ".cartao_pessoa", function(){
             $("#escurecer").show();
+            $("#formulario").show();
+            $("#imgCarregando").hide();
             //Capturar os textos e guadar em variáveis
             var id = $(this).find(".codigo").text();
             var nome = $(this).find(".nome").text();
-            // var data = $(this).find(".data_nasc").text();
             var data = $(this).find(".data_nasc").text();
             var cargo = $(this).find(".cargo").text();
 
@@ -215,11 +216,24 @@
 
         $("#btnDeletar").click(function(){
             if(confirm("Tem certezar que deseja apagar?")){
-                //aqui é o OK
-            }else{
-                 //aqui é o cancelar
-            }
-        });
+                var id_escolhido = $("#id_pessoa").val();
+                $("#formulario").hide();
+                $("#imgCarregando").show();
+                $.ajax({
+                    url: "deletar.php",
+                    method: "POST",
+                    data: {id: id_escolhido},
+                    success: function(resposta){
+                        alert(resposta);
+                        $("#escurecer").hide();
+                        $("#conteudo5").load("consultar2.php");
+                    },
+                    error: function(){
+                        alert("Falha ao enviar dados");
+                    }
+                });
+            }//Fim do IF
+        });//Fim do click no BTN Deletar
 
         
         $("#btnFechar").click(function(){
