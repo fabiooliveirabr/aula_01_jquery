@@ -167,7 +167,7 @@
             <button id="btnCadastrar">Cadastrar</button>
         </div>
         <div style=" width: 700px;">
-            <div id="conteudo4" style="border: 1px solid gray; margin-left: 100px; height: 100px;">
+            <div id="conteudo4" style="border: 1px solid gray; margin-left: 100px; min-height: 100px;">
                 Mostre os dados aqui...
             </div>
         </div>
@@ -176,12 +176,62 @@
     <hr>
 
     <h1>Editar/Deletar com AJAX</h1>
+    <div id="conteudo5">
+        <img src="carregando.gif" height="50">
+    </div>
     <br><br>
     <hr>
 
+    <div id="escurecer">
+        <img src="carregando.gif" id="imgCarregando" height="60">
+        <div id="formulario">
+            <button id="btnFechar">x</button>
+            <h1>Editar/Deletar</h1>
+            ID: <input type="text" id="id_pessoa" disabled><br> <br>
+            Nome: <input type="text" id="nome_pessoa"><br> <br>
+            Data de nascimento: <input type="date" id="data_pessoa"><br> <br>
+            Cargo: <input type="text" id="cargo_pessoa"><br> <br>
+            <button id="btnAtualizar">Salvar alterações</button>
+            <button id="btnDeletar">Apagar</button>
+        </div>
+    </div>
+
     <script>
+        $(document).on("click", ".cartao_pessoa", function(){
+            $("#escurecer").show();
+            //Capturar os textos e guadar em variáveis
+            var id = $(this).find(".codigo").text();
+            var nome = $(this).find(".nome").text();
+            // var data = $(this).find(".data_nasc").text();
+            var data = $(this).find(".data_nasc").text();
+            var cargo = $(this).find(".cargo").text();
+
+            //Mostrar dentros dos inputs(caixas de textos)
+            $("#id_pessoa").val(id);
+            $("#nome_pessoa").val(nome);
+            $("#data_pessoa").val(data);
+            $("#cargo_pessoa").val(cargo);
+        });
+
+        $("#btnDeletar").click(function(){
+            if(confirm("Tem certezar que deseja apagar?")){
+                //aqui é o OK
+            }else{
+                 //aqui é o cancelar
+            }
+        });
+
+        
+        $("#btnFechar").click(function(){
+            $("#escurecer").hide();
+        });
+
         // Quando a página estiver pronta
         $(document).ready(function(){
+            $("#imgCarregando").hide();
+            $("#escurecer").hide();
+
+            $("#conteudo5").load("consultar2.php");
             // alert("Tudo certo");
             //Reconhecer o click simples
             $("#btn1").click(function(){
@@ -282,6 +332,38 @@
 
             //Carregar dados de uma página dentro de uma div
             $("#conteudo3").load("dados.php");
+
+            //Exibir os dados das pessoas
+            $("#conteudo4").load("consultar.php");
+
+            //Cadastrar usando AJAX
+            $("#btnCadastrar").click(function(){
+                $("#conteudo4").html("<img src='carregando.gif' height='60'>");
+                //Capturar os dados do formulário
+                var nome_capturado = $("#caixa_nome3").val();
+                var data_capturada = $("#caixa_data3").val();
+                var cargo_capturado = $("#caixa_cargo3").val();
+
+                $.ajax({
+                    url: "inserir.php",
+                    method: "POST",
+                    data: {nome_pessoa: nome_capturado,
+                           data_nascimento: data_capturada,
+                           cargo_pessoa: cargo_capturado
+                           },
+                    success: function(resposta){
+                        alert(resposta);
+                        $("#conteudo4").load("consultar.php");
+                    },
+                    error: function(){
+                        alert("Arquivo inválido!");
+                    }
+                });
+
+
+
+            });
+
 
 
 

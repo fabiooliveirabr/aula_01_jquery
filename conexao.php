@@ -1,5 +1,5 @@
 <?php
-$maquina = "172.16.142.127";
+$maquina = "172.16.142.250";
 $usuario = "estudante";
 $senha = "senai1234";
 $nome_do_banco = "aula_01_jquery";
